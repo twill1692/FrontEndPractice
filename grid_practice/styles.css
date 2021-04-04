@@ -1,0 +1,43 @@
+body {
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+  font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: grid;
+  /* You can use absolute values as below or fractional relative units */
+  /* grid-template-columns: 200px 200px 200px; */
+
+  /* fr relative fraction unit. Uses available space not all space.
+     Play with the proportions to see the affects
+     below we have three columns proportioned out as 2+1+1 = 4, the first column 
+     gets 2 portions of the the space allocated, or 1/2  */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+
+  /* Repeat notation. Repeats for 3 columns at 1 fr */
+  /* grid-template-columns: repeat(3, 1fr); */
+
+  /* A usefull pattern for creating as many columns as can fit in the container */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  /* Implicit is using the grid-template-columns/rows, implicit is what is placed in 
+     the rows. We set it with grid-auto-rows. By default '100', but can give a value. */
+  /* grid-auto-rows: 100px;   */
+
+  /* use minmax to set a min value and a max value for row content. */
+  grid-auto-rows: minmax(100px, auto);
+
+  /* Sets gap between rows and columsn. Alternatively we can set column-gap or row-gap 
+     cant use fr units. You can remove the grid prefix as well */
+  /* grid-gap: 20px; */
+  gap: 20px;
+}
+
+.container > div {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+}
